@@ -7,16 +7,16 @@
   ],
   "add-city": [
     {
-      "city": "delhi",
-      "population": "19000000",
-      "country": "India",
-      "id": 1
-    },
-    {
       "city": "mumbai",
       "population": "2000000",
       "country": "India",
       "id": 2
+    },
+    {
+      "city": "bangalore",
+      "population": "20235456",
+      "country": "India",
+      "id": 3
     }
   ]
 }

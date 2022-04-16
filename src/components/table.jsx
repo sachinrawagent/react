@@ -30,7 +30,7 @@ const Table=()=>{
         })
     }
     const handleDelete=(id)=>{
-        axios.delete(`http://localhost:8080/${id}`).then((res)=>{
+        axios.delete(`http://localhost:8080/add-city/${id}`).then((res)=>{
             getcitydata();
         })
         .catch((err)=>{

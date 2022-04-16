@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Show from "./Show";
+import Button from '@mui/material/Button';
 const Table=()=>{
     const handlesubmitcountry=(event)=>{
         event.preventDefault();
@@ -66,6 +68,7 @@ const Table=()=>{
     
     return(
         <>
+        <Show/>
     <form action="" onSubmit={handlesubmitcountry}>
        <input type="text" name="country" placeholder="add-country" label="country name"/>
        <input type="submit" value="submit"></input>
@@ -78,9 +81,11 @@ const Table=()=>{
        <input type="submit" value="submit"></input>
      </form>
      <hr/>
-     <buttton onClick={()=>handlesort("ASC")}>sort by asc population</buttton>
+  
+     <Button variant="contained" onClick={()=>handlesort("ASC")}>sort by asc population</Button>
      <hr/>
-     <buttton onClick={()=>handlesort("DSC")}>sort by dsc population</buttton>
+  
+     <Button variant="contained" onClick={()=>handlesort("DSC")}>sort by dsc population</Button>
      <table>
          <thead>
          <tr>
@@ -90,6 +95,7 @@ const Table=()=>{
              <th>Population</th>
              <th>Edit</th>
              <th>Delete</th>
+              
          </tr>
          </thead>
          <tbody>
@@ -102,7 +108,7 @@ const Table=()=>{
                 <td>{el.population}</td>
                 <td>Edit</td>
                 <td><button onClick={()=>handleDelete(el.id)}>Delete</button></td>
-                <td></td>
+                
             </tr>
                )
              })}

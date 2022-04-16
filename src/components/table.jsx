@@ -29,6 +29,14 @@ const Table=()=>{
             console.log(err);
         })
     }
+    const handleDelete=(id)=>{
+        axios.delete(`http://localhost:8080/${id}`).then((res)=>{
+            getcitydata();
+        })
+        .catch((err)=>{
+            console.log(err);
+        })
+    }
     const [data,setData]=useState([]);
         useEffect(()=>{
             getcitydata();
@@ -93,7 +101,7 @@ const Table=()=>{
                 <td>{el.city}</td>
                 <td>{el.population}</td>
                 <td>Edit</td>
-                <td>Delete</td>
+                <td><button onClick={()=>handleDelete(el.id)}>Delete</button></td>
                 <td></td>
             </tr>
                )

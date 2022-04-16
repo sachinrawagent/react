@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Show from "./Show";
 import Button from '@mui/material/Button';
+import CustomizedTables from "./ShowTable";
 const Table=()=>{
+    const [data,setData]=useState([]);
     const handlesubmitcountry=(event)=>{
         event.preventDefault();
         const payload={
@@ -31,27 +33,7 @@ const Table=()=>{
             console.log(err);
         })
     }
-    const handleDelete=(id)=>{
-        axios.delete(`http://localhost:8080/add-city/${id}`).then((res)=>{
-            getcitydata();
-        })
-        .catch((err)=>{
-            console.log(err);
-        })
-    }
-    const [data,setData]=useState([]);
-        useEffect(()=>{
-            getcitydata();
-        },[]);
-        const getcitydata=()=>{
-            axios.get("http://localhost:8080/add-city").then((res)=>{
-                console.log(res);
-                setData([...res.data]);
-            })
-             .catch((err)=>{
-                 console.log(err);
-             })
-        }
+  
         const [order,setOrder]=useState("ASC");
         const handlesort=(col)=>{
            if(order==="ASC"){
@@ -86,7 +68,7 @@ const Table=()=>{
      <hr/>
   
      <Button variant="contained" onClick={()=>handlesort("DSC")}>sort by dsc population</Button>
-     <table>
+     {/* <table>
          <thead>
          <tr>
              <th>id</th>
@@ -113,7 +95,8 @@ const Table=()=>{
                )
              })}
          </tbody>
-     </table>
+     </table> */}
+     <CustomizedTables data={data} setData={setData}/>
         </>
     )
 }
